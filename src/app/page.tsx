@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "./components/Button";
 import Title from "./components/Titles";
 import Service from "./components/Service";
@@ -21,56 +23,117 @@ import img6 from "./img/6-servico.jpg";
 
 /* import imagens site */
 import logo from "./img/logo.png";
-import logowhite from "./img/2-logo-p.png"
+import logowhite from "./img/2-logo-p.png";
 import welcomeBg from "./img/welcomeBg.jpg";
 import pqNos from "./img/porQueNos.jpg";
+import { useState } from "react";
 
 export default function Home() {
+  const [view, setView] = useState(false);
+  function viewhandler() {
+    setView(!view);
+  }
+
   return (
     <main>
       <div
         style={{ backgroundImage: `url(${welcomeBg.src})` }}
         className="h-screen bg bg-center bg-no-repeat bg-cover"
       >
-        <div className="h-screen bg-black/50 flex flex-col">
-          <header className="flex justify-between items-center py-2 px-4 border-b border-white/30">
+        <div className="h-screen bg-black/55 flex flex-col">
+          <a href="#" id="inicio" style={{ visibility: "hidden" }}></a>
+          <header className="flex justify-between items-center py-2 px-4 border-b border-white/30 relative lg:px-24">
             <div className="w-36">
               <img src={logo.src} className="w-full" />
             </div>
-            <div className="flex flex-col gap-1 border-l border-white/30 px-2 py-3 pl-3.5 w-10">
-              <span className="bg-white w-6 h-1 rounded-sm block"></span>
-              <span className="bg-white w-6 h-1 rounded-sm block"></span>
-              <span className="bg-white w-6 h-1 rounded-sm block"></span>
+            <div
+              className="flex flex-col border-l border-white/30 px-2 py-3 pl-3.5 w-10 cursor-pointer relative lg:hidden"
+              onClick={viewhandler}
+            >
+              <span
+                className={`bg-white w-6 h-1 rounded-sm block ${
+                  view
+                    ? "rotate-45 top-3/5 absolute transition-all  ease-in-out duration-300"
+                    : "top-1 transition-all  ease-in-out duration-300 delay-rotate-1000 absolute"
+                }`}
+              ></span>
+              <span
+                className={`bg-white w-6 h-1 rounded-sm block ${
+                  view
+                    ? "opacity-0  transition-all  ease-in-out duration-300"
+                    : "opacity-100 transition-all  ease-in-out duration-300"
+                }`}
+              ></span>
+              <span
+                className={`bg-white w-6 h-1 rounded-sm block ${
+                  view
+                    ? "-rotate-45 bottom-3/5 absolute transition-all  ease-in-out duration-300"
+                    : " bottom-1 transition-all ease-in-out duration-300 absolute"
+                }`}
+              ></span>
             </div>
-            <nav className="hidden">
-              <ul className="flex">
-                <li>INICIO</li>
-                <li>QUEM SOMOS</li>
-                <li>SERVIÇOS</li>
-                <li>CONTATO</li>
+
+            <nav className="hidden lg:block">
+              <ul className="flex gap-8 text-white xl:text-base font-semibold font-mont">
+                <li>
+                  <a href="#inicio">INICIO</a>
+                </li>
+                <li>
+                  {" "}
+                  <a href="#quem">QUEM SOMOS</a>
+                </li>
+                <li>
+                  {" "}
+                  <a href="#servicos">SERVIÇOS</a>
+                </li>
+                <li>
+                  <a href="#contato">CONTATO</a>
+                </li>
               </ul>
             </nav>
+            <ul
+              className={`flex flex-col absolute top-full left-0 bg-zinc-800 w-full font-mont text-md text-white overflow-hidden transition-all`}
+              style={
+                view
+                  ? { height: "18.5rem", transition: "height .4s ease-in-out" }
+                  : { height: "0px" }
+              }
+            >
+              <li className="p-6 border-t border-b border-solid border-white/20">
+                <a href="#inicio">INICIO</a>
+              </li>
+              <li className="p-6 border-t border-b border-solid border-white/20">
+                <a href="#quem">QUEM SOMOS</a>
+              </li>
+              <li className="p-6 border-t border-b border-solid border-white/20">
+                <a href="#servicos">SERVIÇOS</a>
+              </li>
+              <li className="p-6 border-t border-b border-solid border-white/20">
+                <a href="#contato">CONTATO</a>
+              </li>
+            </ul>
           </header>
+
           <section className="flex flex-col items-center justify-center text-center grow">
             <div className="flex flex-col w-11/12 h-1/2 justify-between ">
-              <p className="font-mont text-xs text-zinc-300 font-semibold tracking-widest">
+              <p className="font-mont text-xs text-zinc-300 font-semibold tracking-widest lg:text-sm 2xl:text-base">
                 BEM-VINDOS À CORPORAÇÕES GALVÃO CONTABILIDADE
               </p>
-              <div className="flex flex-col gap-7">
-                <h1 className="font-mont text-2xl text-white font-bold">
+              <div className="flex flex-col gap-7 2xl:gap-12">
+                <h1 className="font-mont text-2xl text-white font-bold lg:text-3xl 2xl:text-5xl">
                   Escritório de Inteligência Contábil em Caldas Novas
                 </h1>
                 <div className="flex justify-center">
                   <span className="block w-4 h-0.5 bg-white self-center"></span>
                   <span className="block w-4 h-0.5 bg-white/30 self-center"></span>
                 </div>
-                <p className="font-open text-md text-white text-medium">
+                <p className="font-open text-md text-white text-medium 2xl:text-lg">
                   Consultorias, contabilidade, BPO, assessoria fiscal,
                   tributária e departamento pessoal.
                 </p>
               </div>
               <Button
-                bgColor="bg-gray-700"
+                bgColor="bg-gray-800"
                 text="AGENDE UMA CONSULTORIA"
                 border="border-0"
                 textColor="text-white"
@@ -79,7 +142,13 @@ export default function Home() {
           </section>
         </div>
       </div>
-      <section className="flex flex-col my-16 py-2 px-5">
+      <section className="flex flex-col py-20 px-5 xl:px-24 lg:flex-row lg:gap-20 justify-center relative">
+        <a
+          href="#"
+          id="quem"
+          style={{ visibility: "hidden" }}
+          className="absolute top-0"
+        ></a>
         <Title
           main="Soluções eficientes para fazer a sua empresa crescer de forma ágil e segura"
           sub="QUEM SOMOS"
@@ -87,11 +156,11 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="font-open mt-12">
-          <div className="text-5xl text-zinc-800 font-mont font-semibold float-left mr-2 -mt-0.8 ">
+        <div className="font-open mt-12 xl:w-[115%]">
+          <div className="text-5xl text-zinc-800 font-mont font-semibold float-left mr-2 -mt-0.8 2xl:text-[3.5rem] ">
             A
           </div>
-          <p className="text-gray-600 text-left leading-6">
+          <p className="text-gray-600 text-left leading-6  2xl:text-lg">
             Corporações Galvão Contabilidade é um escritório de Inteligência
             Contábil renomado em Caldas Novas. Com mais de uma década de
             experiência, a empresa busca alavancar e auxiliar diversos negócios
@@ -119,8 +188,8 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <div className="py-5 px-4 bg-gray-700 text-center flex flex-col gap-4">
-        <p className="text-white font-semibold font-mont text-xs">
+      <div className="py-5 px-4 bg-gray-800 text-center flex flex-col gap-4">
+        <p className="text-white font-semibold font-mont text-xs 2xl:text-base">
           Toque no botão para falar conosco por WhatsApp e agende uma
           consultoria agora mesmo!
         </p>
@@ -128,10 +197,11 @@ export default function Home() {
           text="FALE CONOSCO"
           border="border-1"
           textColor="text-white"
-          bgColor="bg-gray-700"
+          bgColor="bg-gray-800"
         ></Button>
       </div>
-      <section className="flex flex-col justify-center py-16 px-8 gap-16">
+      <section className="flex flex-col justify-center py-16 px-8 gap-16 ">
+        <a href="#" id="servicos" style={{ visibility: "hidden" }}></a>
         <Title
           sub="NOSSOS SERVIÇOS"
           main="Como nós iremos te ajudar"
@@ -139,7 +209,7 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col items-center justify-evenly justify-items-center gap-0 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
           <Service
             img={img1.src}
             titulo="Contabilidade"
@@ -184,59 +254,67 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           textColor="text-white"
         ></Button>
       </section>
-      <section className="bg-gray-800 py-16 px-4">
+      <section className="bg-gray-800 py-16 px-4 lg:flex lg:gap-16 2xl: px-36">
         <div>
           <img src={pqNos.src} className="rounded-sm mb-10" />
         </div>
-        <Title
-          align="text-left"
-          sub="POR QUE NÓS"
-          main="Por que escolhar a Corporações Galvão"
-          maincolor="text-white"
-          decorcolor="bg-white"
-        ></Title>
-        <div className="mt-5  flex flex-col items-center gap-10  ">
-          <p className="font-open text-sm text-white leading-6">
-            Nossa equipe é formada por contadores especialistas em cada serviço
-            oferecido e possuem anos de experiência no ramo. Também conhecem as
-            legislações perfeitamente, o que garante mais segurança para os
-            clientes.
-          </p>
-          <div className="w-4/6 relative">
-            <div className="flex items-center gap-3 -ml-11">
-              <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
-              <h3 className="font-mont text-md text-white font-semibold">
-                Atendimento
-              </h3>
-            </div>
-            <p className="font-open text-xs text-white leading-normal">
-              Nosso atendimento é individual e personalizado, para entregar
-              resultados concretos, serviços de excelência e garantir a
-              satisfação dos empresários.
+        <div className="lg:w-11/12 2xl:w-8/12">
+          <Title
+            align="text-left"
+            sub="POR QUE NÓS"
+            main="Por que escolhar a Corporações Galvão"
+            maincolor="text-white"
+            decorcolor="bg-white"
+          ></Title>
+          <div className="mt-5  flex flex-col items-center gap-10 2xl:gap-[4.25rem]">
+            <p className="font-open text-sm text-white leading-6 2xl:text-xl">
+              Nossa equipe é formada por contadores especialistas em cada
+              serviço oferecido e possuem anos de experiência no ramo. Também
+              conhecem as legislações perfeitamente, o que garante mais
+              segurança para os clientes.
             </p>
-          </div>
-          <div className="w-4/6 mb-6 relative">
-            <div className="flex items-center gap-3 -ml-11">
-              <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
-              <h3 className="font-mont text-md text-white font-semibold">
-                Foco nos Resultados
-              </h3>
+            <div className="w-4/6 relative">
+              <div className="flex items-center gap-3 -ml-11 ">
+                <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
+                <h3 className="font-mont text-md text-white font-semibold 2xl:text-xl">
+                  Atendimento
+                </h3>
+              </div>
+              <p className="font-open text-xs text-white leading-normal 2xl:text-lg">
+                Nosso atendimento é individual e personalizado, para entregar
+                resultados concretos, serviços de excelência e garantir a
+                satisfação dos empresários.
+              </p>
             </div>
-            <p className="font-open text-xs text-white leading-normal">
-              Temos um suporte preparado para atender e tirar todas as dúvidas
-              dos clientes. Temos processos automatizados, que fazem com que
-              tudo seja mais ágil.
-            </p>
+            <div className="w-4/6 mb-6 relative">
+              <div className="flex items-center gap-3 -ml-11 2xl:text-xl">
+                <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
+                <h3 className="font-mont text-md text-white font-semibold">
+                  Foco nos Resultados
+                </h3>
+              </div>
+              <p className="font-open text-xs text-white leading-normal 2xl:text-lg">
+                Temos um suporte preparado para atender e tirar todas as dúvidas
+                dos clientes. Temos processos automatizados, que fazem com que
+                tudo seja mais ágil.
+              </p>
+            </div>
+            <Button
+              text="FALE CONOSCO"
+              textColor="text-zinc-800"
+              bgColor="bg-white"
+              border="border-0"
+            ></Button>
           </div>
-          <Button
-            text="FALE CONOSCO"
-            textColor="text-zinc-800"
-            bgColor="bg-white"
-            border="border-0"
-          ></Button>
         </div>
       </section>
-      <section className="text-center flex flex-col items-center flex-wrap py-16 px-4 ">
+      <section className="text-center flex flex-col items-center justify-center flex-wrap py-16 px-4 relative">
+        <a
+          href="#"
+          id="contato"
+          style={{ visibility: "hidden" }}
+          className="absolute top-0"
+        ></a>
         <Title
           sub="CONTATO"
           main="Entre em contato conosco e solicite um atendimento"
@@ -244,7 +322,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="w-8/12 flex flex-col gap-16 mt-5 ">
+        <div className="w-8/12 flex flex-col gap-16 pt-16 md:grid md:grid-cols-2 2xl:pt-20 2xl:gap-y-36 2xl:ml-64">
           <Contato
             icon={whats.src}
             link="#"
@@ -274,18 +352,32 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
         </div>
       </section>
       <footer className="bg-gray-800">
-        <div className="py-6 flex justify-center">
-        <img src={logowhite.src} alt="" className="w-2/5" />
+        <div className="py-4 flex justify-center">
+          <img
+            src={logowhite.src}
+            alt=""
+            className="w-2/5 md:w-40 2xl:w-2/12"
+          />
         </div>
-      <ul className="flex hidden">
-                <li>INICIO</li>
-                <li>QUEM SOMOS</li>
-                <li>SERVIÇOS</li>
-                <li>CONTATO</li>
-              </ul>
-              <div className="border border-t-0.5 border-white/60 p-4">
-                <p className="font-open text-sm text-white/60">© Copyright 2024 | Corporações Galvão Contabilidade</p>
-              </div>
+        <ul className="flex hidden md:flex text-white text-xs font-mont justify-center gap-6 pb-4 2xl:text-xl">
+          <li>
+            <a href="#inicio">INICIO</a>
+          </li>
+          <li>
+            <a href="#quem">QUEM SOMOS</a>
+          </li>
+          <li>
+            <a href="#servicos">SERVIÇOS</a>
+          </li>
+          <li>
+            <a href="#contato">CONTATO</a>
+          </li>
+        </ul>
+        <div className="border-t border-white/60 p-2">
+          <p className="font-open text-xs text-white/60">
+            © Copyright 2024 | Corporações Galvão Contabilidade
+          </p>
+        </div>
       </footer>
     </main>
   );

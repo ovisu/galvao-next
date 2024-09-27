@@ -2,8 +2,8 @@ export default function Title({sub, main, align, maincolor, decorcolor} : {sub: 
 
     return (
         <div className={`flex flex-col ${align}`}>
-            <p className="font-mont font-bold text-xs text-zinc-500 mb-4 tracking-wider">{sub}</p>
-            <h2 className={`font-mont font-semibold text-2xl ${maincolor}`}>{main}</h2>
+            <p className="font-mont font-bold text-xs text-zinc-500 mb-4 tracking-wider 2xl:text-lg">{sub}</p>
+            <h2 className={`font-mont font-semibold text-2xl ${maincolor} xl:text-3xl 2xl:text-5xl`}>{main}</h2>
             <div className={`flex mt-5 ml-1`}>
                 <span className={`block w-6 h-0.5 ${decorcolor} `}></span>
                 <span className={`block w-6 h-0.5 ${decorcolor}/30 `}></span>
