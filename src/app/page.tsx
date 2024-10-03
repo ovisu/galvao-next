@@ -43,7 +43,7 @@ export default function Home() {
         <div className="h-screen bg-black/55 flex flex-col">
           <a href="#" id="inicio" style={{ visibility: "hidden" }}></a>
           <header className="flex justify-between items-center py-2 px-4 border-b border-white/30 relative lg:px-24">
-            <div className="w-36">
+            <div className="w-40 2xl:w-60">
               <img src={logo.src} className="w-full" />
             </div>
             <div
@@ -53,8 +53,8 @@ export default function Home() {
               <span
                 className={`bg-white w-6 h-1 rounded-sm block ${
                   view
-                    ? "rotate-45 top-3/5 absolute transition-all  ease-in-out duration-300"
-                    : "top-1 transition-all  ease-in-out duration-300 delay-rotate-1000 absolute"
+                    ? "rotate-45 top-3 absolute transition-all  ease-in-out duration-300"
+                    : "top-1 transition-all ease-in-out duration-300 absolute"
                 }`}
               ></span>
               <span
@@ -67,7 +67,7 @@ export default function Home() {
               <span
                 className={`bg-white w-6 h-1 rounded-sm block ${
                   view
-                    ? "-rotate-45 bottom-3/5 absolute transition-all  ease-in-out duration-300"
+                    ? "-rotate-45 bottom-3 absolute transition-all  ease-in-out duration-300"
                     : " bottom-1 transition-all ease-in-out duration-300 absolute"
                 }`}
               ></span>
@@ -76,40 +76,68 @@ export default function Home() {
             <nav className="hidden lg:block">
               <ul className="flex gap-8 text-white xl:text-base font-semibold font-mont">
                 <li>
-                  <a href="#inicio">INICIO</a>
+                  <a
+                    href="#inicio"
+                    className="hover:text-slate-900 transition duration-500 "
+                  >
+                    INICIO
+                  </a>
                 </li>
                 <li>
                   {" "}
-                  <a href="#quem">QUEM SOMOS</a>
+                  <a
+                    href="#quem"
+                    className="hover:text-slate-900 transition duration-500 "
+                  >
+                    QUEM SOMOS
+                  </a>
                 </li>
                 <li>
                   {" "}
-                  <a href="#servicos">SERVIÇOS</a>
+                  <a
+                    href="#servicos"
+                    className="hover:text-slate-900 transition duration-500"
+                  >
+                    SERVIÇOS
+                  </a>
                 </li>
                 <li>
-                  <a href="#contato">CONTATO</a>
+                  <a
+                    href="#contato"
+                    className="hover:text-slate-900 transition duration-500"
+                  >
+                    CONTATO
+                  </a>
                 </li>
               </ul>
             </nav>
             <ul
-              className={`flex flex-col absolute top-full left-0 bg-zinc-800 w-full font-mont text-md text-white overflow-hidden transition-all`}
+              className={`flex flex-col absolute top-full left-0 bg-gray-800 w-full font-mont text-md text-white overflow-hidden transition-all`}
               style={
                 view
-                  ? { height: "18.5rem", transition: "height .4s ease-in-out" }
+                  ? { height: "18.3rem", transition: "height .4s ease-in-out" }
                   : { height: "0px" }
               }
             >
               <li className="p-6 border-t border-b border-solid border-white/20">
-                <a href="#inicio">INICIO</a>
+                <a href="#inicio" onClick={viewhandler}>
+                  INICIO
+                </a>
               </li>
-              <li className="p-6 border-t border-b border-solid border-white/20">
-                <a href="#quem">QUEM SOMOS</a>
+              <li className="p-6 border-b border-solid border-white/20">
+                <a href="#quem" onClick={viewhandler}>
+                  QUEM SOMOS
+                </a>
               </li>
-              <li className="p-6 border-t border-b border-solid border-white/20">
-                <a href="#servicos">SERVIÇOS</a>
+              <li className="p-6  border-b border-solid border-white/20">
+                <a href="#servicos" onClick={viewhandler}>
+                  SERVIÇOS
+                </a>
               </li>
-              <li className="p-6 border-t border-b border-solid border-white/20">
-                <a href="#contato">CONTATO</a>
+              <li className="p-6 border-b border-solid border-white/20">
+                <a href="#contato" onClick={viewhandler}>
+                  CONTATO
+                </a>
               </li>
             </ul>
           </header>
@@ -133,6 +161,7 @@ export default function Home() {
                 </p>
               </div>
               <Button
+                bgColorH="hover:bg-[#293341]"
                 bgColor="bg-gray-800"
                 text="AGENDE UMA CONSULTORIA"
                 border="border-0"
@@ -152,6 +181,7 @@ export default function Home() {
         <Title
           main="Soluções eficientes para fazer a sua empresa crescer de forma ágil e segura"
           sub="QUEM SOMOS"
+          subColor="text-zinc-500"
           align="-start"
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
@@ -194,6 +224,7 @@ export default function Home() {
           consultoria agora mesmo!
         </p>
         <Button
+          bgColorH="hover:bg-white/10"
           text="FALE CONOSCO"
           border="border-1"
           textColor="text-white"
@@ -204,12 +235,13 @@ export default function Home() {
         <a href="#" id="servicos" style={{ visibility: "hidden" }}></a>
         <Title
           sub="NOSSOS SERVIÇOS"
+          subColor="text-zinc-500"
           main="Como nós iremos te ajudar"
           align="items-center"
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="flex flex-col items-center justify-evenly justify-items-center gap-0 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
+        <div className="flex flex-col items-center justify-evenly justify-items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
           <Service
             img={img1.src}
             titulo="Contabilidade"
@@ -248,6 +280,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           ></Service>
         </div>
         <Button
+          bgColorH="hover:bg-[#3d4755]"
           text="FALE CONOSCO"
           bgColor="bg-gray-800"
           border="border-0"
@@ -262,6 +295,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           <Title
             align="text-left"
             sub="POR QUE NÓS"
+            subColor="text-[#85858e]"
             main="Por que escolhar a Corporações Galvão"
             maincolor="text-white"
             decorcolor="bg-white"
@@ -299,12 +333,15 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
                 tudo seja mais ágil.
               </p>
             </div>
-            <Button
-              text="FALE CONOSCO"
-              textColor="text-zinc-800"
-              bgColor="bg-white"
-              border="border-0"
-            ></Button>
+            <div className="w-4/6 mb-6 relative">
+              <Button
+                bgColorH="hover:bg-slate-200"
+                text="FALE CONOSCO"
+                textColor="text-zinc-800"
+                bgColor="bg-white"
+                border="border-0"
+              ></Button>
+            </div>
           </div>
         </div>
       </section>
@@ -317,6 +354,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
         ></a>
         <Title
           sub="CONTATO"
+          subColor="text-zinc-500"
           main="Entre em contato conosco e solicite um atendimento"
           align="items-center"
           maincolor="text-zinc-800"
@@ -325,29 +363,29 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
         <div className="w-8/12 flex flex-col gap-16 pt-16 md:grid md:grid-cols-2 2xl:pt-20 2xl:gap-y-36 2xl:ml-64">
           <Contato
             icon={whats.src}
-            link="#"
+            link="https://wa.me/5564992055521"
             linkText="(64)99205-5521"
             text="Fale conosco pelo Whatsapp"
           ></Contato>
           <Contato
-            icon={phone.src}
-            link="#"
-            linkText="(64)99205-5521"
-            text="Ligue para nós"
-          ></Contato>
-          <Contato
-            icon={insta.src}
-            link="#"
-            linkText="Corporações Galvão Contabilidade"
-            text="Conheça nossa equipe!"
-          ></Contato>
-          <Contato
             icon={pin.src}
-            link="#"
+            link="https://maps.app.goo.gl/KtNRGTncPLcFbR3q6"
             linkText={`Espaço B3 Coworking
             R.B3, Qd.10, Lt.1/2 - Itanhangá I,
             Caldas Novas - GO, 75690-000`}
             text="Faça-nos uma visita"
+          ></Contato>
+          <Contato
+            icon={insta.src}
+            link="https://www.instagram.com/galvaocontabilidade.st/"
+            linkText="Corporações Galvão Contabilidade"
+            text="Conheça nossa equipe!"
+          ></Contato>
+          <Contato
+            icon={phone.src}
+            link="mailto:contato@corporacoesgalvao.com.br"
+            linkText="contato@corporacoesgalvao.com"
+            text="Entre em contato por email"
           ></Contato>
         </div>
       </section>
@@ -361,16 +399,36 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
         </div>
         <ul className="flex hidden md:flex text-white text-xs font-mont justify-center gap-6 pb-4 2xl:text-xl">
           <li>
-            <a href="#inicio">INICIO</a>
+            <a
+              href="#inicio"
+              className="hover:text-emerald-500 transition-all duration-500"
+            >
+              INICIO
+            </a>
           </li>
           <li>
-            <a href="#quem">QUEM SOMOS</a>
+            <a
+              href="#quem"
+              className="hover:text-emerald-500 transition-all duration-500"
+            >
+              QUEM SOMOS
+            </a>
           </li>
           <li>
-            <a href="#servicos">SERVIÇOS</a>
+            <a
+              href="#servicos"
+              className="hover:text-emerald-500 transition-all duration-500"
+            >
+              SERVIÇOS
+            </a>
           </li>
           <li>
-            <a href="#contato">CONTATO</a>
+            <a
+              href="#contato"
+              className="hover:text-emerald-500 transition-all duration-500"
+            >
+              CONTATO
+            </a>
           </li>
         </ul>
         <div className="border-t border-white/60 p-2">
