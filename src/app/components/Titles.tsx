@@ -1,3 +1,4 @@
+'use client';
 export default function Title({sub, main, align, subColor, maincolor, decorcolor} : {sub: string; main: string; align: string; maincolor: string; subColor: string; decorcolor: string;}){
 
     return (

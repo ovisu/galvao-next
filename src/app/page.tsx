@@ -28,11 +28,13 @@ import welcomeBg from "./img/welcomeBg.jpg";
 import pqNos from "./img/porQueNos.jpg";
 import { useState } from "react";
 
+
 export default function Home() {
   const [view, setView] = useState(false);
   function viewhandler() {
     setView(!view);
   }
+
 
   return (
     <main>
@@ -74,7 +76,7 @@ export default function Home() {
             </div>
 
             <nav className="hidden lg:block">
-              <ul className="flex gap-8 text-white xl:text-base font-semibold font-mont">
+              <ul className="flex gap-8 items-center text-white xl:text-base font-semibold font-mont">
                 <li>
                   <a
                     href="#inicio"
@@ -107,6 +109,16 @@ export default function Home() {
                     className="hover:text-slate-900 transition duration-500"
                   >
                     CONTATO
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
+                    target="_blank"
+                    className="p-3 rounded bg-gray-800 text-sm text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
+                  >
+                    {" "}
+                    PORTAL DO CLIENTE{" "}
                   </a>
                 </li>
               </ul>
@@ -152,8 +164,8 @@ export default function Home() {
                   Escritório de Inteligência Contábil em Caldas Novas
                 </h1>
                 <div className="flex justify-center">
-                  <span className="block w-4 h-0.5 bg-white self-center"></span>
-                  <span className="block w-4 h-0.5 bg-white/30 self-center"></span>
+                  <span className="block w-6 h-0.5 bg-white self-center"></span>
+                  <span className="block w-6 h-0.5 bg-white/30 self-center"></span>
                 </div>
                 <p className="font-open text-md text-white text-medium 2xl:text-lg">
                   Consultorias, contabilidade, BPO, assessoria fiscal,
@@ -186,7 +198,7 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="font-open mt-12 xl:w-[115%]">
+        <div className="font-open mt-12 lg:w-[100%] xl:w-[115%]">
           <div className="text-5xl text-zinc-800 font-mont font-semibold float-left mr-2 -mt-0.8 2xl:text-[3.5rem] ">
             A
           </div>
@@ -231,8 +243,12 @@ export default function Home() {
           bgColor="bg-gray-800"
         ></Button>
       </div>
-      <section className="flex flex-col justify-center py-16 px-8 gap-16 ">
-        <a href="#" id="servicos" style={{ visibility: "hidden" }}></a>
+      <section className="flex flex-col justify-center py-16 px-8 gap-16 relative">
+        <a
+          href="#"
+          id="servicos"
+          style={{ visibility: "hidden", position: "absolute", top: 0 }}
+        ></a>
         <Title
           sub="NOSSOS SERVIÇOS"
           subColor="text-zinc-500"
@@ -241,13 +257,14 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="flex flex-col items-center justify-evenly justify-items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
+        <div className="flex flex-col justify-evenly justify-items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
           <Service
             img={img1.src}
             titulo="Contabilidade"
             texto="
 Escrituração contábil para todos os segmentos, Contabilidade especializada para condomínios, Contabilidade para condomínios, Elaboração de fluxo de caixa, Gerenciamento Financeiro, Balanços Mensais e Anuais."
-          ></Service>
+
+         ></Service>
           <Service
             img={img2.src}
             titulo="Fiscal"
@@ -287,7 +304,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           textColor="text-white"
         ></Button>
       </section>
-      <section className="bg-gray-800 py-16 px-4 lg:flex lg:gap-16 2xl: px-36">
+      <section className="bg-gray-800 py-16 px-4 lg:flex lg:items-center lg:gap-16 lg:pt-24 2xl:px-36 ">
         <div>
           <img src={pqNos.src} className="rounded-sm mb-10" />
         </div>
@@ -390,13 +407,15 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
         </div>
       </section>
       <footer className="bg-gray-800">
-        <div className="py-4 flex justify-center">
-          <img
-            src={logowhite.src}
-            alt=""
-            className="w-2/5 md:w-40 2xl:w-2/12"
-          />
-        </div>
+        <a href="#inicio">
+          <div className="py-4 flex justify-center">
+            <img
+              src={logowhite.src}
+              alt=""
+              className="w-2/5 md:w-40 2xl:w-2/12"
+            />
+          </div>
+        </a>
         <ul className="flex hidden md:flex text-white text-xs font-mont justify-center gap-6 pb-4 2xl:text-xl">
           <li>
             <a

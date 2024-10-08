@@ -1,3 +1,5 @@
+'use client';
+import { useRef } from "react";
 import checkWhite from "./../img/checkmark-icon-white.svg";
 export default function Service({
   img,
@@ -8,9 +10,13 @@ export default function Service({
   titulo: string;
   texto: string;
 }) {
+
+  const cardRef = useRef(null)
+  {console.log(cardRef)}
   return (
-    <div className="max-w-96 flex flex-col text-center justify-center">
-      <div className="w-full relative pt-52">
+
+<div ref={cardRef} className="max-w-96 flex flex-col text-center shadow shadow-gray-800/30 basis-full rounded-md p-4 pb-8">
+      <div className="w-full relative pt-52 self-start">
         <img
           src={img}
           alt=""
@@ -22,11 +28,12 @@ export default function Service({
       </div>
       
       <h3 className="font-mont font-semibold text-zinc-800 mt-12 2xl:text-xl">{titulo}</h3>
-      <div className={`flex my-5 justify-center`}>
+      <div className={`flex my-5 self-center`}>
         <span className="block w-4 h-0.5 bg-zinc-800 "></span>
         <span className="block w-4 h-0.5 bg-zinc-800/30 "></span>
       </div>
       <p className="font-open text-sm text-gray-600 leading-6 2xl:text-lg">{texto}</p>
     </div>
+    
   );
 }
