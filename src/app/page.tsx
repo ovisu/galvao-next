@@ -5,6 +5,7 @@ import Title from "./components/Titles";
 import Service from "./components/Service";
 import Contato from "./components/Contato";
 
+
 /* icones*/
 import checkDark from "./img/checkmark.svg";
 import checkWhite from "./img/checkmark-icon-white.svg";
@@ -117,8 +118,8 @@ export default function Home() {
                     target="_blank"
                     className="p-3 rounded bg-gray-800 text-sm text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
                   >
-                    {" "}
-                    PORTAL DO CLIENTE{" "}
+                    
+                    PORTAL DO CLIENTE
                   </a>
                 </li>
               </ul>
@@ -127,7 +128,7 @@ export default function Home() {
               className={`flex flex-col absolute top-full left-0 bg-gray-800 w-full font-mont text-md text-white overflow-hidden transition-all`}
               style={
                 view
-                  ? { height: "18.3rem", transition: "height .4s ease-in-out" }
+                  ? { height: "22.88rem", transition: "height .4s ease-in-out" }
                   : { height: "0px" }
               }
             >
@@ -149,6 +150,13 @@ export default function Home() {
               <li className="p-6 border-b border-solid border-white/20">
                 <a href="#contato" onClick={viewhandler}>
                   CONTATO
+                </a>
+                
+              </li>
+              <li className="p-6 border-b border-solid border-white/20">
+                <a  href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
+                    target="_blank" onClick={viewhandler}>
+                  PORTAL DO CLIENTE
                 </a>
               </li>
             </ul>
@@ -231,6 +239,7 @@ export default function Home() {
         </div>
       </section>
       <div className="py-5 px-4 bg-gray-800 text-center flex flex-col gap-4">
+           
         <p className="text-white font-semibold font-mont text-xs 2xl:text-base">
           Toque no botão para falar conosco por WhatsApp e agende uma
           consultoria agora mesmo!
