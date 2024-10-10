@@ -266,7 +266,7 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="flex flex-col justify-evenly items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
+        <div className="flex flex-col items-center justify-center  gap-10 md:flex-row md:flex-wrap md:items-stretch 2xl:grid 2xl:grid-cols-3 2xl:justify-items-center  2xl:gap-y-24">
           <Service
             img={img1.src}
             titulo="Contabilidade"
