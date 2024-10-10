@@ -252,7 +252,7 @@ export default function Home() {
           bgColor="bg-gray-800"
         ></Button>
       </div>
-      <section className="flex flex-col justify-center py-16 px-8 gap-16 relative">
+      <section className="flex flex-col text-center justify-center py-16 px-8 gap-16 relative">
         <a
           href="#"
           id="servicos"
@@ -266,7 +266,7 @@ export default function Home() {
           maincolor="text-zinc-800"
           decorcolor="bg-zinc-800"
         ></Title>
-        <div className="flex flex-col justify-evenly justify-items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
+        <div className="flex flex-col justify-evenly items-center gap-10 lg:flex-row lg:flex-wrap  2xl:grid 2xl:grid-cols-3 2xl:gap-y-24">
           <Service
             img={img1.src}
             titulo="Contabilidade"

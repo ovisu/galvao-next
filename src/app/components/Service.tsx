@@ -1,5 +1,4 @@
 'use client';
-import { useRef } from "react";
 import checkWhite from "./../img/checkmark-icon-white.svg";
 
 
@@ -13,11 +12,9 @@ export default function Service({
   texto: string;
 }) {
 
-  const cardRef = useRef(null)
-  {console.log(cardRef)}
   return (
 
-<div ref={cardRef} className="max-w-96 flex flex-col text-center shadow shadow-gray-800/30 basis-full rounded-md p-4 pb-8">
+<div className="max-w-96 flex flex-col text-center shadow shadow-gray-800/30 basis-full rounded-md p-4 pb-8">
       <div className="w-full relative pt-52 self-start">
         <img
           src={img}
