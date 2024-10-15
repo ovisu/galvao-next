@@ -45,7 +45,7 @@ export default function Home() {
       >
         <div className="h-screen bg-black/55 flex flex-col">
           <a href="#" id="inicio" style={{ visibility: "hidden" }}></a>
-          <header className="flex justify-between items-center py-2 px-4 border-b border-white/30 relative lg:px-24">
+          <header className="flex justify-between items-center py-2 px-4 border-b border-white/30 relative lg:pl-24 lg:pr-16 xl:px-24">
             <div className="w-40 2xl:w-60">
               <img src={logo.src} className="w-full" />
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
 
             <nav className="hidden lg:block">
-              <ul className="flex gap-8 items-center text-white xl:text-base font-semibold font-mont">
+              <ul className="flex gap-6 items-center text-white lg:text-sm xl:text-base 2xl:text-lg font-semibold font-mont">
                 <li>
                   <a
                     href="#inicio"
@@ -116,7 +116,7 @@ export default function Home() {
                   <a
                     href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
                     target="_blank"
-                    className="p-3 rounded bg-gray-800 text-sm text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
+                    className="p-2 rounded lg:text-xs xl:text-sm 2xl:text-base bg-gray-800 text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
                   >
                     
                     PORTAL DO CLIENTE
