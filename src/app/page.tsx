@@ -1,11 +1,12 @@
 "use client";
+import { useState } from "react";
+
 
 import Button from "./components/Button";
 import Title from "./components/Titles";
 import Service from "./components/Service";
 import Contato from "./components/Contato";
-
-
+import Card from "./components/Card";
 /* icones*/
 import checkDark from "./img/checkmark.svg";
 import checkWhite from "./img/checkmark-icon-white.svg";
@@ -22,12 +23,18 @@ import img4 from "./img/4-servico.jpg";
 import img5 from "./img/5-servico.jpg";
 import img6 from "./img/6-servico.jpg";
 
+/* imagens card colaboradores */
+import colab from "./img/eny(1).png";
+import colab1 from "./img/luiz(2).png";
+import colab2 from "./img/matheus.png";
+import colab3 from "./img/patrick.png";
+import colab4 from "./img/gabriel.png";
+import colab5 from "./img/paulo.png";
+import colab6 from "./img/natan.png";
 /* import imagens site */
 import logo from "./img/logo.png";
 import logowhite from "./img/2-logo-p.png";
 import welcomeBg from "./img/welcomeBg.jpg";
-import pqNos from "./img/porQueNos.jpg";
-import { useState } from "react";
 
 
 export default function Home() {
@@ -35,7 +42,6 @@ export default function Home() {
   function viewhandler() {
     setView(!view);
   }
-
 
   return (
     <main>
@@ -54,30 +60,27 @@ export default function Home() {
               onClick={viewhandler}
             >
               <span
-                className={`bg-white w-6 h-1 rounded-sm block ${
-                  view
+                className={`bg-white w-6 h-1 rounded-sm block ${view
                     ? "rotate-45 top-3 absolute transition-all  ease-in-out duration-300"
                     : "top-1 transition-all ease-in-out duration-300 absolute"
-                }`}
+                  }`}
               ></span>
               <span
-                className={`bg-white w-6 h-1 rounded-sm block ${
-                  view
+                className={`bg-white w-6 h-1 rounded-sm block ${view
                     ? "opacity-0  transition-all  ease-in-out duration-300"
                     : "opacity-100 transition-all  ease-in-out duration-300"
-                }`}
+                  }`}
               ></span>
               <span
-                className={`bg-white w-6 h-1 rounded-sm block ${
-                  view
+                className={`bg-white w-6 h-1 rounded-sm block ${view
                     ? "-rotate-45 bottom-3 absolute transition-all  ease-in-out duration-300"
                     : " bottom-1 transition-all ease-in-out duration-300 absolute"
-                }`}
+                  }`}
               ></span>
             </div>
 
             <nav className="hidden lg:block">
-              <ul className="flex gap-6 items-center text-white lg:text-sm xl:text-base 2xl:text-lg font-semibold font-mont">
+              <ul className="flex gap-6 items-center text-white lg:text-sm  2xl:text-lg font-semibold font-mont">
                 <li>
                   <a
                     href="#inicio"
@@ -116,9 +119,8 @@ export default function Home() {
                   <a
                     href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
                     target="_blank"
-                    className="p-2 rounded lg:text-xs xl:text-sm 2xl:text-base bg-gray-800 text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
+                    className="p-2 rounded lg:text-xs 2xl:text-base bg-gray-800 text-white hover:bg-gray-700 hover:text-slate-200 transition ease-in-out duration-500"
                   >
-                    
                     PORTAL DO CLIENTE
                   </a>
                 </li>
@@ -151,11 +153,13 @@ export default function Home() {
                 <a href="#contato" onClick={viewhandler}>
                   CONTATO
                 </a>
-                
               </li>
               <li className="p-6 border-b border-solid border-white/20">
-                <a  href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
-                    target="_blank" onClick={viewhandler}>
+                <a
+                  href="https://onvio.com.br/clientcenter/company/B32930AC54B6478FAE0EA3A7D8A7ED96"
+                  target="_blank"
+                  onClick={viewhandler}
+                >
                   PORTAL DO CLIENTE
                 </a>
               </li>
@@ -239,7 +243,6 @@ export default function Home() {
         </div>
       </section>
       <div className="py-5 px-4 bg-gray-800 text-center flex flex-col gap-4">
-           
         <p className="text-white font-semibold font-mont text-xs 2xl:text-base">
           Toque no botão para falar conosco por WhatsApp e agende uma
           consultoria agora mesmo!
@@ -272,8 +275,7 @@ export default function Home() {
             titulo="Contabilidade"
             texto="
 Escrituração contábil para todos os segmentos, Contabilidade especializada para condomínios, Contabilidade para condomínios, Elaboração de fluxo de caixa, Gerenciamento Financeiro, Balanços Mensais e Anuais."
-
-         ></Service>
+          ></Service>
           <Service
             img={img2.src}
             titulo="Fiscal"
@@ -313,11 +315,8 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
           textColor="text-white"
         ></Button>
       </section>
-      <section className="bg-gray-800 py-16 px-4 lg:flex lg:items-center lg:gap-16 lg:pt-24 2xl:px-36 ">
-        <div>
-          <img src={pqNos.src} className="rounded-sm mb-10" />
-        </div>
-        <div className="lg:w-11/12 2xl:w-8/12">
+      <section className="bg-gray-800 py-16 px-4 gap-24 flex flex-col lg:flex-row lg:items-center lg:gap-6 justify-around lg:pt-24 xl:px-12">
+        <div className="lg:w-2/5 self-start">
           <Title
             align="text-left"
             sub="POR QUE NÓS"
@@ -326,7 +325,7 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
             maincolor="text-white"
             decorcolor="bg-white"
           ></Title>
-          <div className="mt-5  flex flex-col items-center gap-10 2xl:gap-[4.25rem]">
+          <div className="mt-5 flex flex-col items-center gap-10 2xl:gap-[3rem]">
             <p className="font-open text-sm text-white leading-6 2xl:text-xl">
               Nossa equipe é formada por contadores especialistas em cada
               serviço oferecido e possuem anos de experiência no ramo. Também
@@ -337,29 +336,45 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
               <div className="flex items-center gap-3 -ml-11 ">
                 <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
                 <h3 className="font-mont text-md text-white font-semibold 2xl:text-xl">
-                  Atendimento
+                  Nossa Missão
                 </h3>
               </div>
               <p className="font-open text-xs text-white leading-normal 2xl:text-lg">
-                Nosso atendimento é individual e personalizado, para entregar
-                resultados concretos, serviços de excelência e garantir a
-                satisfação dos empresários.
+                Contribuir com o Progresso de nossa Nação através da Prestação
+                de Serviços Contábeis de excelência aos nossos Clientes,
+                promovendo-lhes o conhecimento necessário para gerir seus
+                negócios a fim de alcancem os resultados desejados.
               </p>
             </div>
-            <div className="w-4/6 mb-6 relative">
-              <div className="flex items-center gap-3 -ml-11 2xl:text-xl">
+            <div className="w-4/6 relative">
+              <div className="flex items-center gap-3 -ml-11 ">
                 <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
-                <h3 className="font-mont text-md text-white font-semibold">
-                  Foco nos Resultados
+                <h3 className="font-mont text-md text-white font-semibold 2xl:text-xl">
+                  Valores
                 </h3>
               </div>
               <p className="font-open text-xs text-white leading-normal 2xl:text-lg">
-                Temos um suporte preparado para atender e tirar todas as dúvidas
-                dos clientes. Temos processos automatizados, que fazem com que
-                tudo seja mais ágil.
+                Priorizamos ética e transparência, honestidade nas relações,
+                investimento no desenvolvimento de pessoas e o sucesso dos
+                clientes, acreditando que o trabalho em equipe é essencial para
+                inovação e resultados excepcionais.
               </p>
             </div>
-            <div className="w-4/6 mb-6 relative">
+            <div className="w-4/6 relative">
+              <div className="flex items-center gap-3 -ml-11 ">
+                <img src={checkWhite.src} alt="" className="-mt-1" />{" "}
+                <h3 className="font-mont text-md text-white font-semibold 2xl:text-xl">
+                  Nossa Visão
+                </h3>
+              </div>
+              <p className="font-open text-xs text-white leading-normal 2xl:text-lg">
+                Continuar a ser uma empresa de referência que influencia os
+                empreendedores a usarem a Ciência Contábil como ferramenta de
+                conhecimento indispensável para as tomadas de decisões
+                assertivas.
+              </p>
+            </div>
+            <div className="w-4/6 relative">
               <Button
                 bgColorH="hover:bg-slate-200"
                 text="FALE CONOSCO"
@@ -368,6 +383,71 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
                 border="border-0"
               ></Button>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-8 justify-center items-center object-left-bottom">
+          <Title
+            align="items-center text-center"
+            sub="COLABORADORES"
+            subColor="text-[#85858e]"
+            main="Conheça nossa equipe!"
+            maincolor="text-white"
+            decorcolor="bg-white"
+          ></Title>
+          <div className="grid gap-10 justify-items-center">
+            <Card
+              img={colab.src}
+              titulo="Contadora e Fundadora"
+              nome="Eny Galvão"
+              cv="Graduada em Ciências Contábeis e Pós Graduada em Direito Tributário pela UNIP, tem vivência na área contábil desde o ano de 1990 – são mais de três décadas acompanhando as mudanças e evoluções dessa Ciência tão nobre! "
+              imgalign="object-[100%-0%]"
+            ></Card>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
+            <Card
+              img={colab1.src}
+              titulo="Gerente de Operações"
+              nome="Luiz Rezende"
+              cv="Formado em Ciências Contábeis, é o responsável pelo gerenciamento operacional nas áreas Fiscal, Contábil e RH da Empresa, também atua como Especialista tributário e Auditor de processos e revisão tributária. "
+              imgalign="object-[100%18%]"
+            ></Card>
+            <Card
+              img={colab2.src}
+              titulo="Responsável pela Área Fiscal"
+              nome="Matheus Valadão"
+              cv="Graduado em Ciências Contábeis, é o responsável pela Área Fiscal – Apuração de impostos do Lucro Real, Presumido e Simples Nacional, Envio de obrigações acessórias em todas as esferas (municipal, estadual e federal). Análise e conferência de tributos, Revisão de alíquotas e Tributação."
+              imgalign="object-[100%40%]"
+            ></Card>
+            <Card
+              img={colab3.src}
+              titulo="Responsável pela Área Contábil"
+              nome="Patrick Roberto"
+              cv="Graduado em Ciências Contábeis, é Responsável pela área Contábil e pela área Legal e Societária  – Classificação e conciliação das contas contábeis; encerramento mensal e anual das médias e grandes empresas;
+              Contratos de Constituição de empresas, Alteração e Distrato; Regularização de Documentos Legais da empresa;"
+              imgalign="object-[100%20%]"
+            ></Card>
+            <Card
+              img={colab4.src}
+              titulo="Analista Adjunto"
+              nome="Gabriel França"
+              cv="Graduando em Ciências Contábeis, presta serviços tanto na área Contábil quanto na área Fiscal. É responsável pela Emissão de documentos fiscais e guias de impostos, fechamento mensal das pequenas e médias empresas."
+              imgalign="object-[100%0%]"
+            ></Card>
+              <Card
+              img={colab5.src}
+              titulo="Analista adjunto"
+              nome="Paulo Henrique"
+              cv="Graduando em Sistemas de Informação, fornece apoio nas áreas de Recursos Humanos e Departamento Pessoal, realizando Contratações, demissões, rotinas da Folha de pagamento, Férias, 13º salário, cálculo do FGTS, INSS e demais impostos."
+              imgalign="object-[100%0%]"
+            ></Card>
+            <Card
+              img={colab6.src}
+              titulo="Analista de Recursos Humanos"
+              nome="Natan Silva"
+              cv="Graduado em Ciências Contábeis e Graduando em Gestão de Recursos Humanos, é o encarregado pelos assunstos de Departamento Pessoal e Recursos humano. Sendo responsável por contratações, demissões, rotinas da Folha de pagamento, Férias, 13º salário, cálculo do FGTS, INSS e demais impostos."
+              imgalign="object-[100%0%]"
+            ></Card>
+            </div>
+            <div></div>
           </div>
         </div>
       </section>
