@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Contato({
@@ -11,8 +12,9 @@ export default function Contato({
   link: string;
   linkText: string;
 }) {
-  const fadein = useRef();
-  const [cardVisible, setCardVisible] = useState();
+
+  const fadein = useRef(null);
+  const [cardVisible, setCardVisible] = useState<undefined | boolean>(false);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) =>{
 
@@ -21,12 +23,13 @@ export default function Contato({
         console.log(entry);
         if (entry.isIntersecting == true) {
 
-          observer.unobserve(fadein.current);
+          observer.unobserve(fadein.current!);
         }
 
     });
-   observer.observe(fadein.current);
+   observer.observe(fadein.current!);
   });
+
   return (
     <div className="flex items-center gap-4 2xl:gap-6 max-w-80 2xl:max-w-none" ref={fadein} style={cardVisible ? {marginLeft:"0rem", opacity: "1", transition:"margin-left ease-in-out 1s, opacity ease-in-out 1s"} : {marginLeft: "3rem", opacity: "0", transition:"margin-left ease-in-out 1s, opacity ease-in-out 1s"}} >
       

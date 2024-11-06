@@ -13,21 +13,22 @@ export default function Service({
   titulo: string;
   texto: string;
 }) {
-  const fadein = useRef();
-  const [cardVisible, setCardVisible] = useState();
+  const fadein = useRef(null);
+  const [cardVisible, setCardVisible] = useState<boolean>(false);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) =>{
 
         const entry = entries[0];
-        setCardVisible(entry.isIntersecting);
+        setCardVisible(entry.isIntersecting!);
         console.log(entry);
         if (entry.isIntersecting == true) {
 
-          observer.unobserve(fadein.current);
+          observer.unobserve(fadein.current!);
         }
 
     });
-   observer.observe(fadein.current);
+    console.log(fadein.current!);
+   observer.observe(fadein.current!);
   });
   return (
     <div

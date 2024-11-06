@@ -1,7 +1,7 @@
 "use client";
 
 import arrow from "../img/Arrow.svg";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect} from "react";
 
 export default function Card({
   img,
@@ -16,13 +16,13 @@ export default function Card({
   cv: string;
   imgalign: string;
 }) {
-  const [viewCV, setViewCV] = useState(false);
+  const [viewCV, setViewCV] = useState<undefined | boolean>(false);
   function viewCVhandler() {
     setViewCV(!viewCV);
     console.log(viewCV);
   }
-  const fadein = useRef();
-  const [cardVisible, setCardVisible] = useState();
+  const fadein = useRef(null);
+  const [cardVisible, setCardVisible] = useState<boolean>(false);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -31,18 +31,19 @@ export default function Card({
 
       if (entry.isIntersecting == true) {
 
-        observer.unobserve(fadein.current);
+        observer.unobserve(fadein.current!);
       }
 
     });
-    observer.observe(fadein.current);
+    console.log(fadein.current);
+    observer.observe(fadein.current!);
       
   });
 
   return (
     <div
       className="bg-white relative flex flex-col items-center justify-center py-3 px-4 rounded-md min-w-56 self-center justify-self-center"
-      ref={fadein}
+      ref={fadein!}
       style={
         cardVisible
           ? {
