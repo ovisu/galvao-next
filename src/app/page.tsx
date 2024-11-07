@@ -24,13 +24,13 @@ import img5 from "./img/5-servico.jpg";
 import img6 from "./img/6-servico.jpg";
 
 /* imagens card colaboradores */
-import colab from "./img/eny(1).png";
-import colab1 from "./img/luiz(2).png";
-import colab2 from "./img/matheus.png";
-import colab3 from "./img/patrick.png";
-import colab4 from "./img/gabriel.png";
-import colab5 from "./img/paulo.png";
-import colab6 from "./img/natan.png";
+import colab from "./img/eny(1).webp";
+import colab1 from "./img/luiz(2).webp";
+import colab2 from "./img/matheus.webp";
+import colab3 from "./img/patrick.webp";
+import colab4 from "./img/gabriel.webp";
+import colab5 from "./img/paulo.webp";
+import colab6 from "./img/natan.webp";
 /* import imagens site */
 import logo from "./img/logo.png";
 import logowhite from "./img/2-logo-p.png";
