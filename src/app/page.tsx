@@ -30,7 +30,6 @@ import colab2 from "./img/matheus.webp";
 import colab3 from "./img/patrick.webp";
 import colab4 from "./img/gabriel.webp";
 import colab5 from "./img/paulo.webp";
-import colab6 from "./img/natan.webp";
 /* import imagens site */
 import logo from "./img/logo.png";
 import logowhite from "./img/2-logo-p.png";
@@ -437,13 +436,6 @@ As consultorias funcionam para analisar a situação das empresas e as necessida
               titulo="Analista adjunto"
               nome="Paulo Henrique"
               cv="Graduando em Sistemas de Informação, fornece apoio nas áreas de Recursos Humanos e Departamento Pessoal, realizando Contratações, demissões, rotinas da Folha de pagamento, Férias, 13º salário, cálculo do FGTS, INSS e demais impostos."
-              imgalign="object-[100%0%]"
-            ></Card>
-            <Card
-              img={colab6.src}
-              titulo="Analista de Recursos Humanos"
-              nome="Natan Silva"
-              cv="Graduado em Ciências Contábeis e Graduando em Gestão de Recursos Humanos, é o encarregado pelos assunstos de Departamento Pessoal e Recursos humano. Sendo responsável por contratações, demissões, rotinas da Folha de pagamento, Férias, 13º salário, cálculo do FGTS, INSS e demais impostos."
               imgalign="object-[100%0%]"
             ></Card>
             </div>
